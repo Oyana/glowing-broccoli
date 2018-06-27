@@ -1,1 +1,6 @@
-glowing-broccoli
+# Glowing 🥦
+
+### Install
+`npm install`
+
+`gulp`

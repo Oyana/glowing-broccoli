@@ -1,0 +1,220 @@
+*{
+	box-sizing: border-box;
+}
+html{
+	font-family: $mainFont;
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+	font-size: $remInit; /* INIT REM DON'T TOUCH! if you want to change font size do it in body tag plz */
+}
+body{
+	height: auto;
+	width: 100%;
+	font-size: $baseFontSize;
+	background-color: $bodyBackground;
+}
+%exposent {
+	@include exposent();
+}
+sup, %sup {
+	@extend %exposent;
+	top: -0.5em;
+}
+sub, %sub {
+	@extend %exposent;
+	bottom: -0.25em;
+}
+i, %i, %italic{
+	font-style: italic;
+}
+b, strong{
+	font-weight: bold;
+}
+u{
+	text-decoration: underline;
+}
+a, %link, %a{
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+.block-content .content a:not([class^='btn']){
+	font-size:1.5rem;
+	font-family:$mainFont;
+	&:hover{
+		text-decoration:underline;
+	}
+	&:visited{
+		text-decoration:underline;
+	}
+	&:active{
+		text-decoration:underline;
+	}
+	&:focus{
+		text-decoration:underline;
+	}
+}
+
+.both, .clear, .clearboth, %both, %clear, %clearboth{
+	clear: both;
+	// @include clearfix();
+}
+#page, #main-container, %page{
+	@include auto-block();
+	width: 100%;
+	max-width: 300rem;
+	min-width: 32rem;
+
+	overflow: hidden;
+}
+%title{
+	font-family: $titleFont;
+}
+h1, h2, h3, h4, h5, h6, .title-strong, %title-strong, .title{
+	@extend %title;
+}
+%btn{
+	@include block();
+	font-family: $titleFont;
+}
+.btn, .btn-silver, .btn-red, button, input[type="submit"]{
+	@extend %btn;
+}
+.default-transition, %default-transition{
+	@include default-transition()
+}
+.all-transition, %all-transition{
+	@include all-transition()
+}
+.color-transition, %color-transition{
+	transition: color 0.5s, background-color 0.5s;
+}
+.site-main, %site-main{
+	padding: 0;
+}
+.entry-footer, .comments-area, .mobil-only, .post-navigation, %entry-footer, %comments-area, %mobil-only, %post-navigation{
+	display: none!important;
+}
+.lowercase, %lowercase{
+	text-transform: lowercase!important;
+}
+.uppercase, %uppercase{
+	text-transform: uppercase!important;
+}
+.capitalize, %capitalize{
+	text-transform: capitalize!important;
+}
+small, .small, %small{
+	font-size: 1.3rem;
+}
+.align-left, %align-left{
+	text-align: left;
+}
+.align-right, %align-right{
+	text-align: right;
+}
+.align-center, %align-center{
+	text-align: center;
+}
+.strong, %strong{
+	font-weight:bold !important;
+}
+.content{
+	@extend %content !optional;
+}
+*[class^='content-']{
+	@extend .content;
+}
+.exposent{
+	@include exposent();
+}
+.block{
+	@include block();
+}
+.absolute-block,{
+	@include absolute-block();
+}
+.fixed-block{
+	@include fixed-block();
+}
+.table-block{
+	@include table-block();
+}
+.left-block{
+	@include left-block();
+}
+.right-block{
+	@include right-block();
+}
+.break-block{
+	@include break-block();
+}
+.auto-block{
+	@include auto-block();
+}
+.auto-abs-block{
+	@include auto-abs-block();
+}
+.ninja-block{
+	@include ninja-block();
+}
+.no-repeat-bg{
+	@include no-repeat-bg();
+}
+.full-bg{
+	@include full-bg();
+}
+.center-bg{
+	@include center-bg();
+}
+.full-fixed-bg{
+	@include full-fixed-bg();
+}
+.container{
+	@include container();
+}
+.img-responsive{
+	@include img-responsive();
+}
+.img-full{
+	@include img-full();
+}
+.abstractElem{
+	@include abstractElem();
+}
+.center{
+	@include center();
+}
+.container,*[class^='container-']{
+	@include container();
+}
+img, %img, %image{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+%input{
+	max-width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	@extend %input;
+}

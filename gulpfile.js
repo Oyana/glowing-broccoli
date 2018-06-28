@@ -8,6 +8,7 @@ let uglify =		require("gulp-uglify");
 let rename =		require("gulp-rename");
 let sass =			require('gulp-sass');
 let htmlmin =		require('gulp-htmlmin');
+let notify =		require("gulp-notify");
 
 const resourcePath = "./resources/";
 const publicPath = "./public/";
@@ -28,7 +29,8 @@ gulp.task('script-concat', function(){
 		.pipe( plumber() )
 		.pipe( concat('main.min.js') )
 		.pipe( uglify() )
-		.pipe( gulp.dest( publicPath + 'js' ) );
+		.pipe( gulp.dest( publicPath + 'js' ) )
+		.pipe( notify( "File compiled 🥦 \n<%= file.relative %>" ) );
 });
 
 gulp.task('html-concat', function(){
@@ -44,7 +46,8 @@ gulp.task('html-concat', function(){
 		.pipe( plumber() )
 		.pipe( concat('index.html') )
 		.pipe( htmlmin({collapseWhitespace: true}) )
-		.pipe( gulp.dest("./") );
+		.pipe( gulp.dest("./") )
+		.pipe( notify( "File compiled 🥦 \n<%= file.relative %>" ) );
 });
 
 
@@ -52,7 +55,8 @@ gulp.task('sass-concat', function () {
 	return gulp.src( resourcePath + 'scss/*.scss' )
 		.pipe( plumber() )
 		.pipe( sass( {outputStyle: 'compressed'} ).on('error', sass.logError) )
-		.pipe( gulp.dest( publicPath + './css') );
+		.pipe( gulp.dest( publicPath + './css') )
+		.pipe( notify( "File compiled 🥦 \n<%= file.relative %>" ) );
 });
 
 gulp.task('watch', function(){

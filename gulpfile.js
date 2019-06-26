@@ -34,20 +34,35 @@ gulp.task('script-concat', function(){
 });
 
 gulp.task('html-concat', function(){
-	const htmlfiles = [
-		resourcePath + 'html/head.inc.html',
-		resourcePath + 'html/header.inc.html',
-		resourcePath + 'html/homme.inc.html',
-		resourcePath + 'html/map.inc.html',
-		resourcePath + 'html/footer.inc.html',
-		resourcePath + 'html/foot.inc.html',
+	var jsDest = [
+		'index.html',
 	];
-	gulp.src( htmlfiles )
-		.pipe( plumber() )
-		.pipe( concat('index.html') )
-		.pipe( htmlmin({collapseWhitespace: true}) )
-		.pipe( gulp.dest("./") )
-		.pipe( notify( "File compiled 🥦 \n<%= file.relative %>" ) );
+	let jsSource = [
+		[
+			resourcePath + 'html/head.inc.html',
+			resourcePath + 'html/header.inc.html',
+			resourcePath + 'html/home.inc.html',
+			resourcePath + 'html/footer.inc.html',
+			resourcePath + 'html/foot.inc.html',
+		],
+	];
+	for ( var i = 0; i <  jsDest.length; i++ )
+	{
+		gulp.src( jsSource[i] )
+			.pipe( plumber() )
+			.pipe( concat( jsDest[i] ) )
+			.pipe( htmlmin({collapseWhitespace: true}) )
+			.pipe( gulp.dest("./") );
+		if( i === jsDest.length - 1 )
+		{
+			gulp.src( jsSource[i] )
+				.pipe( plumber() )
+				.pipe( concat( jsDest[i] ) )
+				.pipe( htmlmin({collapseWhitespace: true}) )
+				.pipe( gulp.dest("./") )
+				.pipe( notify( "File compiled 🥦 \n<%= file.relative %>" ) );
+		}
+	}
 });
 
 

@@ -117,24 +117,6 @@ $.fn.bkoMenu = function( userParam )
 	$burgerAvtive.removeClass( isActive );
 }
 
-function getAPITkn()
-{
-	const kley = "{yourAPIKey}";
-	const today = new Date();
-	let dd = today.getDate();
-	let mm = today.getMonth() + 1;
-	const yyyy = today.getFullYear();
-	if( dd<10 )
-	{
-		dd = '0'+dd
-	}
-	if( mm<10 )
-	{
-		mm = '0'+mm
-	}
-	return MD5( kley + MD5( yyyy + '-' + mm + '-' + dd ) );
-}
-
 function nl2br (str, is_xhtml) {
 	var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
 	return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');

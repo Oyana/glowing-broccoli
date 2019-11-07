@@ -12,23 +12,58 @@
 		{
 			setTimeout( function()
 			{
+				/**
+				 * Uncoment to unable animation
+				 */
 				// setAnimationList();
 			}, 100);
 		}
+		/**
+		 * Uncoment to unable bko scrollind links
+		 */
+		// $('a').bkoScroll();
+
+		/**
+		 * Uncoment to unable bko coookie baner
+		 */
+		// $("body").bkoCookies({
+		// 	bkoBgColor: '#4f6254'
+		// });
+
+		/**
+		 * Uncoment to unable google analitycs
+		 */
+		// trackPChange();
+
+		/**
+		 * Uncoment to unable bko mobile menu
+		 */
+		// $(".menu-mobile").bkoMenu();
+
+		/**
+		 * Uncoment to unable bko contact form
+		 */
+		// $(".contact-form").bkoContact();
 	}
 	let cache = function()
 	{
 		console.log( "🦄 TurboLinks CacheLoad" );
+		/**
+		 * Uncoment to unable animation
+		 */
 		// resetAnimationList();
 	}
 	document.addEventListener("turbolinks:before-cache", cache);
 	document.addEventListener("turbolinks:load", ready);
-
+	
 	$(window).on('scroll', function()
 	{
 		let fromTop = $(window).scrollTop();
 		if ( $(window).width() >= 481 )
 		{
+			/**
+			 * Uncoment to unable animation
+			 */
 			// setAnimationList();
 		}
 		$('body').toggleClass("down", (fromTop > 150));

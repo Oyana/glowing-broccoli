@@ -1,4 +1,4 @@
-$.fn.bkoContact = function()
+$.fn.bkoContact = function(tokenApi, emailTo)
 {
 	let $self = $(this);
 	if( $self.isBound("submit") === false )
@@ -35,8 +35,8 @@ $.fn.bkoContact = function()
 				type:'POST',
 				url : 'https://www.bkotest.com/staticmailer/staticmailer.php',
 				data : {
-					'token': getAPITkn(),
-					'mail': 'contact@oveto.fr',
+					'token': getAPITkn(tokenApi),
+					'mail': emailTo,
 					'subject': subject,
 					'message': message
 				},
@@ -55,11 +55,11 @@ $.fn.bkoContact = function()
 		});
 	}
 }
-    
-    
-function getAPITkn()
+
+
+function getAPITkn( tokenApi )
 {
-	const kley = "{yourAPIKey}";
+	const kley = tokenApi;
 	const today = new Date();
 	let dd = today.getDate();
 	let mm = today.getMonth() + 1;

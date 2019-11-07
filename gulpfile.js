@@ -18,8 +18,14 @@ gulp.task('default', ['script-concat', 'watch']);
 gulp.task('script-concat', function(){
 	const jsfiles = [
 		resourcePath + 'js/_function.js',
-		resourcePath + 'js/_animatedLoading.js',
-		resourcePath + 'js/_ga.js',
+		// resourcePath + 'js/_animatedLoading.js',
+		// resourcePath + 'js/_bkoLaryload.js',
+		// resourcePath + 'js/_bkoMenu.js',
+		// resourcePath + 'js/_bkoScroll.js',
+		// resourcePath + 'js/_MD5.js',
+		// resourcePath + 'js/_bkoContact.js',
+		// resourcePath + 'js/_ga.js',
+		// resourcePath + 'js/_bkoCookies.js',
 		resourcePath + 'js/app.js',
 	];
 	gulp.src(jsfiles)

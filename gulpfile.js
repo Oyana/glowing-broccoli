@@ -18,7 +18,7 @@ gulp.task('default', ['script-concat', 'watch']);
 gulp.task('script-concat', function(){
 	const jsfiles = [
 		resourcePath + 'js/_function.js',
-		// resourcePath + 'js/_animatedLoading.js',
+		// resourcePath + 'js/_animateLoading.js',
 		// resourcePath + 'js/_bkoLaryload.js',
 		// resourcePath + 'js/_bkoMenu.js',
 		// resourcePath + 'js/_bkoScroll.js',
